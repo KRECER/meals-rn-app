@@ -1,7 +1,2 @@
-import { api } from './api';
-import * as hooks from './hooks';
-
-export const mealModel = Object.freeze({
-  api,
-  hooks
-});
+export * as api from './api';
+export * as hooks from './hooks';
