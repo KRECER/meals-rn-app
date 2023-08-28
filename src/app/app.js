@@ -1,10 +1,10 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { CategoriesScreen } from '../screens/categories';
+import { Routing } from './routes';
 
 const queryClient = new QueryClient();
 
 export const App = () => {
   return <QueryClientProvider client={queryClient}>
-        <CategoriesScreen />
+    <Routing />
   </QueryClientProvider>;
 };
