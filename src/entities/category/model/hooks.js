@@ -1,6 +1,6 @@
-import { useQuery } from 'react-query';
+import { useQuery as useReactQuery } from 'react-query';
 import { categoriesApi } from '../../../shared/api';
 
-export const useCategories = () => {
-  return useQuery('categories', categoriesApi.get);
+export const useQuery = () => {
+  return useReactQuery('categories', categoriesApi.get);
 };

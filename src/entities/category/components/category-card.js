@@ -1,13 +1,13 @@
 import { Pressable, StyleSheet, Text, View, Platform } from 'react-native';
 
-export const Card = ({ data }) => {
+export const Card = ({ data, onPress }) => {
   return (
     <View style={styles.root}>
       <Pressable
         android_ripple={{ color: '#ccc' }}
         style={({ pressed }) =>
           pressed ? [styles.pressable, { opacity: 0.5 }] : styles.pressable
-        }
+        } onPress={onPress}
       >
         <View style={[styles.inner, { backgroundColor: data.color }]}>
           <Text style={styles.title}>{data.title}</Text>

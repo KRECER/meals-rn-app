@@ -1,8 +1,8 @@
-import { useCategories } from '../../entities/category/model/hooks';
-import { CategoryList } from '../../widgets/category-list/category-list';
+import { categoryModel } from '../../entities/category';
+import { CategoryList } from '../../widgets/category-list';
 
 export const Screen = () => {
-  const { data } = useCategories();
+  const { data } = categoryModel.hooks.useQuery();
 
   return <CategoryList data={data} />;
 };
