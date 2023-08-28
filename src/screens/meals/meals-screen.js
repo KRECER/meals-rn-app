@@ -1,12 +1,25 @@
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { mealsModel } from '../../entities/meal';
 import { MealList } from '../../widgets/meal-list';
-import { useRoute } from '@react-navigation/native';
+import { useLayoutEffect } from 'react';
+import { categoryModel } from '../../entities/category';
 
 export const Screen = () => {
+  const { data: mealsData } = mealsModel.hooks.useQuery();
+  const { data: categoriesData } = categoryModel.hooks.useQuery();
   const route = useRoute();
+  const navigation = useNavigation();
+
   const categoryId = route.params?.categoryId;
-  const { data } = mealsModel.hooks.useQuery();
-  const filteredMeals = data?.filter((it) => it.categoryIds.includes(categoryId));
+
+  const filteredMeals = mealsData?.filter((it) => it.categoryIds.includes(categoryId));
+  const categoryTitle = categoriesData?.find((it) => it.id === categoryId)?.title;
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: categoryTitle
+    });
+  }, [categoryTitle, navigation]);
 
   return <MealList data={filteredMeals} />;
 };

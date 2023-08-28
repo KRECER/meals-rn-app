@@ -1,1 +1,1 @@
-export { List as MealList } from './meals-list';
+export { List as MealList } from './meal-list';
