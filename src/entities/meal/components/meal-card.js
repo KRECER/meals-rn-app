@@ -4,7 +4,8 @@ import { toCapitalize } from '../../../shared/lib/texts/utils';
 export const Card = ({ data }) => {
   return <View style={styles.root}>
     <Pressable>
-        <Image style={styles.image} source={{ uri: data.imageUrl }} />
+      <View style={styles.innerContainer}>
+      <Image style={styles.image} source={{ uri: data.imageUrl }} />
         <View style={styles.contentWrap}>
           <Text style={styles.title}>{data.title}</Text>
           <View style={styles.detailsWrap}>
@@ -13,6 +14,7 @@ export const Card = ({ data }) => {
             <Text>{toCapitalize(data.affordability)}</Text>
           </View>
         </View>
+      </View>
     </Pressable>
   </View>;
 };
@@ -31,8 +33,10 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.30,
     shadowRadius: 4.65,
-
     elevation: 8
+  },
+  innerContainer: {
+    borderRadius: 8
   },
   image: {
     height: 200
