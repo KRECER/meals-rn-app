@@ -7,7 +7,8 @@ export const Card = ({ data, onPress }) => {
         android_ripple={{ color: '#ccc' }}
         style={({ pressed }) =>
           pressed ? [styles.pressable, { opacity: 0.5 }] : styles.pressable
-        } onPress={onPress}
+        }
+        onPress={onPress}
       >
         <View style={[styles.inner, { backgroundColor: data.color }]}>
           <Text style={styles.title}>{data.title}</Text>
@@ -37,7 +38,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 15,
     borderRadius: 8
-
   },
   title: {
     fontSize: 18,
