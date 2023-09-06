@@ -1,6 +1,10 @@
-import { useQuery as useReactQuery } from 'react-query';
-import { api } from './api';
+import { useQuery } from 'react-query';
+import { mealsApi } from '../api';
 
-export const useQuery = () => {
-  return useReactQuery('meals', api.get);
+export const useAllQuery = () => {
+  return useQuery('meals', mealsApi.getAll);
+};
+
+export const useByIdQuery = (id) => {
+  return useQuery(['meals', id], () => mealsApi.getById(id));
 };
