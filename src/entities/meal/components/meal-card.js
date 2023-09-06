@@ -1,11 +1,11 @@
 import { View, Text, StyleSheet, Pressable, Image, Platform } from 'react-native';
 import { toCapitalize } from '../../../shared/lib/texts/utils';
 
-export const Card = ({ data }) => {
+export const Card = ({ data, onPress }) => {
   return <View style={styles.root}>
-    <Pressable>
+    <Pressable onPress={onPress}>
       <View style={styles.innerContainer}>
-      <Image style={styles.image} source={{ uri: data.imageUrl }} />
+        <Image style={styles.image} source={{ uri: data.imageUrl }} />
         <View style={styles.contentWrap}>
           <Text style={styles.title}>{data.title}</Text>
           <View style={styles.detailsWrap}>
