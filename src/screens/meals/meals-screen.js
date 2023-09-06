@@ -5,7 +5,7 @@ import { useLayoutEffect } from 'react';
 import { categoryModel } from '../../entities/category';
 
 export const Screen = () => {
-  const { data: mealsData } = mealsModel.hooks.useQuery();
+  const { data: mealsData } = mealsModel.hooks.useAllQuery();
   const { data: categoriesData } = categoryModel.hooks.useQuery();
   const route = useRoute();
   const navigation = useNavigation();
