@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, Pressable, Image, Platform } from 'react-native';
-import { toCapitalize } from '../../../shared/lib/texts/utils';
+import MealDetails from './meal-details';
 
 export const Card = ({ data, onPress }) => {
   return <View style={styles.root}>
@@ -9,9 +9,7 @@ export const Card = ({ data, onPress }) => {
         <View style={styles.contentWrap}>
           <Text style={styles.title}>{data.title}</Text>
           <View style={styles.detailsWrap}>
-            <Text>{data.duration}m</Text>
-            <Text>{toCapitalize(data.complexity)}</Text>
-            <Text>{toCapitalize(data.affordability)}</Text>
+            <MealDetails data={data} />
           </View>
         </View>
       </View>
