@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import Ionicons from '@expo/vector-icons/Ionicons';
@@ -59,8 +58,6 @@ const StackNavigator = () => {
 
 export const Routing = () => {
   return (
-    <NavigationContainer>
       <StackNavigator />
-    </NavigationContainer>
   );
 };
