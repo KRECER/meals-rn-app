@@ -1,10 +1,10 @@
-import { Image, StyleSheet, View, Text, Pressable } from 'react-native';
+import { Image, StyleSheet, View, Text } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
 import { MealDetails, mealsModel } from '../../entities/meal';
-import { Ionicons } from '@expo/vector-icons';
 import { Button } from '../../shared/ui';
 import { useLayoutEffect } from 'react';
 import { useModalContext } from '../../shared/lib/modal/modal.hook';
+import { AddToFavorites } from '../../features/meals/add-to-favorites';
 
 export const MealDetailsScreen = () => {
   const route = useRoute();
@@ -24,9 +24,7 @@ export const MealDetailsScreen = () => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Pressable>
-          <Ionicons name='heart-outline' color='white' size={32}/>
-        </Pressable>;
+        return <AddToFavorites id={mealId} />;
       }
     });
   }, [navigation]);
