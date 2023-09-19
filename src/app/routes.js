@@ -1,11 +1,10 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { MaterialIcons } from '@expo/vector-icons';
 
 import { CategoriesScreen, MealsScreen, FavoritesScreen, MealDetailsScreen } from '../screens';
-import { screenNames, screenOptions } from '../shared/lib/navigation/constants';
+import { drawerScreenOptions, screenNames, stackScreenOptions } from '../shared/lib/navigation/constants';
+import { AppDrawer } from '../widgets/app-drawer';
 
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -13,26 +12,15 @@ const Drawer = createDrawerNavigator();
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
-      screenOptions={screenOptions.drawer}>
+      screenOptions={drawerScreenOptions} drawerContent={props => <AppDrawer {...props} />}>
       <Drawer.Screen
-        name='Drawer'
+        name={screenNames.Categories}
         component={CategoriesScreen}
-        options={{
-          drawerIcon: ({ color, size, focused }) => (
-            <Ionicons name={focused ? 'home' : 'home-outline'} size={size} color={color} />
-          ),
-          drawerLabel: 'Categories',
-          headerTitle: 'Categories'
-        }}
       />
+
       <Drawer.Screen
         name={screenNames.Favorites}
         component={FavoritesScreen}
-        options={{
-          drawerIcon: ({ color, size, focused }) => (
-            <MaterialIcons name={focused ? 'favorite' : 'favorite-outline'} color={color} size={size} />
-          )
-        }}
       />
     </Drawer.Navigator>
   );
@@ -41,12 +29,11 @@ const DrawerNavigator = () => {
 const StackNavigator = () => {
   return (
     <Stack.Navigator
-      screenOptions={screenOptions.stack}>
+      screenOptions={stackScreenOptions}>
       <Stack.Screen
-        name={screenNames.Categories}
+        name={screenNames.Categories + 'Stack'}
         component={DrawerNavigator}
         options={{
-          title: 'Categories',
           headerShown: false
         }}
       />
