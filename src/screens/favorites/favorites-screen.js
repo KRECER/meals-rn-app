@@ -1,7 +1,5 @@
-import { Text, View } from 'react-native';
+import { FavoriteList } from '../../widgets/favorite-list';
 
 export const Screen = () => {
-  return <View>
-        <Text>Favorites</Text>
-    </View>;
+  return <FavoriteList />;
 };
